@@ -5,6 +5,8 @@ import Animated, {useSharedValue, withTiming, useAnimatedStyle } from 'react-nat
 import styles from './style';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import Config from '../config/';
+import { useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function Pedido() {
     const navigation = useNavigation();
@@ -15,7 +17,13 @@ export default function Pedido() {
     const randomWidth = useSharedValue(10);
     const opacity = useSharedValue(0); 
    
-    
+   
+    useFocusEffect(
+      useCallback(() => {
+        console.log('Tela reexibida, atualizando lista...');
+        fetchData(); // Chama a API ou atualiza os dados da mesa
+      }, [])
+    );
 
     React.useEffect(() => {
       const unsubscribe = navigation.addListener('focus', () => {
@@ -58,25 +66,24 @@ React.useEffect(() => {
        window.onload;     
     },[]);
     
-    useEffect(() => {        
-
-        const res = fetch(Config.baseURL+'/Comanda/')
-                .then(async response => await response.json())
-                .then((data) => {
-                    if(data!=""){
-                        setLista(data);
-                        
-                    }
-                    else
-                    seterroMensagem('Registro não encontrado!')
-                        setTimeout(()=> {
-                            seterroMensagem(null);                                             
-                        },3000);
-                })
-                .catch((e) => {
-                    console.error('Erro no retorno do servidor: Consulta comanda')
-                });                                
-    }, []);
+    const fetchData = () => {
+      fetch(Config.baseURL + '/Comanda/')
+          .then(async response => await response.json())
+          .then((data) => {
+              if (data != "") {
+                  setLista(data);
+              } else {
+                  seterroMensagem('Registro não encontrado!');
+                  setTimeout(() => {
+                      seterroMensagem(null);
+                  }, 3000);
+              }
+          })
+          .catch((e) => {
+              console.error('Erro no retorno do servidor: Consulta comanda');
+          });
+  };
+  
 
     function Chamada(id, name){            
         Config.Mesa = id;  

@@ -4,6 +4,7 @@ import Home from '../home';
 import Produto from '../produto';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React, {useEffect} from 'react';
+import { TouchableOpacity } from 'react-native';
 
 import Config from '../config';
 
@@ -29,12 +30,26 @@ export default function RoutesTabs(){
                                 tabBarIcon: ({ color, size }) => (
                                 <Icon name="reorder" color={color} size={size}  /> ), }} />
             
-            <Tab.Screen name="Produto" component={Produto}   options={{
+            <Tab.Screen name="Produto" component={Produto} options={{
                                 headerShown: true,
                                 title: 'Lista de Produtos',
-                                tabBarLabel:'Produto',                               
+                                tabBarLabel: 'Produto',
                                 tabBarIcon: ({ color, size }) => (
-                                <Icon name="bookmark" color={color} size={size} /> ), }} />  
+                                <Icon name="bookmark" color={color} size={size} />
+                        ),
+                                tabBarButton: (props) => (
+                                <TouchableOpacity 
+                                    {...props} 
+                                    onPress={() => {
+                                    Config.ValidaProduto = false;
+                                    props.onPress?.(); // Mantém o comportamento padrão da aba
+                                    
+                                }} 
+                                />
+        ),
+    }} 
+/>
+  
             </Tab.Navigator>
     )
 

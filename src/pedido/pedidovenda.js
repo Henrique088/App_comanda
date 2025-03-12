@@ -138,7 +138,8 @@ export default function PedidoVenda() {
                             //initValue={1}                   
                             />    */}
 
-                            <NumericInput value={qte} onChange={setqte} />;                  
+                            <NumericInput value={qte} onChange={setqte} />
+                                         
                                                           
                     </View>
                     
