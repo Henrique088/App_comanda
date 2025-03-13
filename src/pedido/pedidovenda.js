@@ -146,9 +146,11 @@ export default function PedidoVenda() {
                     <View style={stylepedidovenda.ButtonContainer} > 
                         <Icon.Button                        
                             style={stylepedidovenda.Button}  
-                            size={40}                             
+                            size={40}
+                                                         
                             name="cart-plus"                        
                             onPress={()=> AdicioneItem() } >
+                           
                         </Icon.Button>
 
                         {Config.ValidaProduto = true}

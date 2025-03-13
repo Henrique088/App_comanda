@@ -11,9 +11,12 @@ const stylepedidovenda = StyleSheet.create({
     Button:{     
       alignItems: 'center',
       justifyContent: 'center',
-      textAlign: 'center',  
+      textAlign: 'center', 
+       
       //left: 5,
-      //width: 20,
+      //width: "80%",
+     // backgroundColor: "#E8E8E8",
+      
          
     },  
 
@@ -22,11 +25,16 @@ const stylepedidovenda = StyleSheet.create({
     }, 
 
     ButtonContainer: {
+     
+      flexDirection: 'row',
+      height: 50,
+      width: "100%",
       marginTop:15,
       marginBottom:5, 
       justifyContent:'center',     
-      alignItems:"center", 
-      textAlign:"center",  
+      //alignItems:"center", 
+      //textAlign:"center",
+      //backgroundColor: "#E8E8E8",  
      
     },
 

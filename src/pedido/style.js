@@ -91,14 +91,25 @@ const styles = StyleSheet.create({
 
       ItemComanda: {
         flex:1,
-        marginTop:10,
+        //marginTop:10,
         justifyContent: 'center',
+        textAlignVertical: 'center',
         color: "#FFFFFF",
         fontStyle: 'normal',
         fontSize: 18,
       },       
      
-
+      valorTotal:{
+        width: "100%",
+        height: 40,
+        fontSize: 20,
+        fontWeight: 'bold',
+        backgroundColor: "#38A69D",
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        textAlignVertical: 'center',
+      },
       ListaItem:{                
         marginBottom: 15,
         borderRadius: 4,

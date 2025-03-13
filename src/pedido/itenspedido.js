@@ -13,6 +13,7 @@ export default function ItensPedidoVenda() {
     const navigation = useNavigation();
     const [prodados, setProDados] = useState();   
     const [showMore, setShowMore] = useState(false);
+    const [total, setTotal] = useState(0);
     
     React.useEffect(() => {
             const unsubscribe = navigation.addListener('focus', () => {
@@ -32,9 +33,22 @@ export default function ItensPedidoVenda() {
             return unsubscribe;
           }, [navigation]);
     
+          useEffect(() => {
+            if(prodados){
+              const valorTotal = prodados.reduce((acc, item) => {
+                return acc + (typeof item.precototal === "number" ? item.precototal : 0);
+              }, 0);
+              setTotal(valorTotal);
+            }
+           
+          }, [prodados]);
+
     useEffect(() => { 
       console.log("itenspedido_funcçaõoo", Config.Mesa)
-        Itens();         
+        Itens();
+        
+        
+
     }, []);   
     console.log("itenspedido_funcçaõoo_02", Config.Mesa)
     // Listar os itens da comanda.
@@ -48,9 +62,10 @@ export default function ItensPedidoVenda() {
             const res = fetch(Config.baseURL+'/Pedido/id/',reme)        
                     .then(async response => await response.json())
                     .then((data) => 
-                    {setProDados(data)}
+                    {setProDados(data)},
+                   
                     ).catch(() => { 
-                        setProDados();
+                        setProDados([]);
                         console.log('Não existe itens na lista!');
                     }); 
     };
@@ -70,7 +85,8 @@ export default function ItensPedidoVenda() {
                     const Validar = json[0];
                     if (Validar.permissao == 1){
                         Alert.alert('Item Excluído com sucesso.'); 
-                        Itens();                      
+                        Itens();
+                                              
                     } else
                         Alert.alert('Usuário sem acesso a exclusão');                        
                 });
@@ -130,7 +146,7 @@ export default function ItensPedidoVenda() {
                 <View  style={[styles.AlinhaTexto]}>
                     <Text  numberOfLines={2} onTextLayout={handleTextLayout} style={styles.itenspedido}> {item.codigoproduto} - {item.descricaoproduto} </Text>
                     <Text  numberOfLines={2} ellipsizeMode="tail" onTextLayout={handleTextLayout} style={styles.SubTotais}>
-                        QTE: {financial(item.quantidade)} | VALOR UNIT: {financial(item.precovendaitem)} | VALOR TOTAL: {financial(item.precototal)} )
+                        QTE: {financial(item.quantidade)} | VALOR UNIT: {financial(item.precovendaitem)} | VALOR TOTAL: {financial(item.precototal)} 
                         
                     </Text>
                 </View>                
@@ -159,9 +175,11 @@ export default function ItensPedidoVenda() {
             />
         );
         };
-       
+        
+        
+        
     return (
-      <SafeAreaView style={{flex:1}}>
+      <SafeAreaView style={{flex:1, width: '100%', height: '100%'}}>
             <FlatList style={stylepedidovenda.FlatList}
                 data = { prodados }
                 keyExtractor = { item => item.sequencial }
@@ -170,5 +188,6 @@ export default function ItensPedidoVenda() {
                 ListEmptyComponent={ListEmptyComponent}                
                 >       
             </FlatList>
+            <Text style={styles.valorTotal}> Valor total R$: {total.toFixed(2)} </Text>
       </SafeAreaView>
 )}
