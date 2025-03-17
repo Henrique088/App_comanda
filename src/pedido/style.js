@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         textAlignVertical: 'center',
+        color: "#FFFFFF",
       },
       ListaItem:{                
         marginBottom: 15,

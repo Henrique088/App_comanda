@@ -227,7 +227,7 @@ const renderSwitch = (param) => {
             return require('../static/img/48428.png')
 
         default:
-            return null
+            return require('../static/img/sem_foto.png')
     }
 };
 

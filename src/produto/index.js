@@ -115,6 +115,7 @@ export default function Produto(){
            
             <View style={styles.organizalista}>      
                 <Image  source={ValidarImagem} style={styles.imagem} alt={""}/>           
+                
                 <TouchableOpacity onPress={() => getItem(item)} style={styles.buttonFacebookStyle }>
                         
                       <View style={styles.Item}>                      
