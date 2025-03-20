@@ -144,7 +144,7 @@ export default function ItensPedidoVenda() {
         return (            
             <View style={[styles.ListaItem]}>                
                 <View  style={[styles.AlinhaTexto]}>
-                    <Text  numberOfLines={2} onTextLayout={handleTextLayout} style={styles.itenspedido}> {item.codigoproduto} - {item.descricaoproduto} </Text>
+                    <Text  numberOfLines={2} onTextLayout={handleTextLayout} style={styles.itenspedido} > {item.codigoproduto} - {item.descricaoproduto} </Text>
                     <Text  numberOfLines={2} ellipsizeMode="tail" onTextLayout={handleTextLayout} style={styles.SubTotais}>
                         QTE: {financial(item.quantidade)} | VALOR UNIT: {financial(item.precovendaitem)} | VALOR TOTAL: {financial(item.precototal)} 
                         

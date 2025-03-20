@@ -11,11 +11,15 @@ const stylepedidovenda = StyleSheet.create({
     Button:{     
       alignItems: 'center',
       justifyContent: 'center',
-      textAlign: 'center', 
-       
-      //left: 5,
-      //width: "80%",
-     // backgroundColor: "#E8E8E8",
+      //textAlign: 'center', 
+      //borderRadius: 80,
+      //left: 25,
+      width: "60",
+      height: 55,
+      borderColor: "#FF7F50",
+      borderWidth: 2,
+      borderRadius: 10,
+      backgroundColor: "#FF7F50",
       
          
     },  
@@ -27,14 +31,16 @@ const stylepedidovenda = StyleSheet.create({
     ButtonContainer: {
      
       flexDirection: 'row',
-      height: 50,
-      width: "100%",
-      marginTop:15,
+      //height: "30%",
+      width: "50%",
+      marginTop:45,
       marginBottom:5, 
       justifyContent:'center',     
-      //alignItems:"center", 
-      //textAlign:"center",
-      //backgroundColor: "#E8E8E8",  
+      alignItems:"center", 
+      textAlign:"center",
+      //backgroundColor: "#E8E8E8",
+      
+        
      
     },
 
@@ -44,25 +50,26 @@ const stylepedidovenda = StyleSheet.create({
 
     container: { 
       flex:0.5,                 
-      backgroundColor: "#38A69D",                   
-      width: '90%',
-      height:"0%",     
+      backgroundColor: "#d3d3d3",                   
+      width: '95%',
+      //height:"40%",     
       borderRadius: 20,                
       alignItems:"center",
       justifyContent:"center",
+      
     },     
     
     Mesa:{
       position:'static',
-      width: '90%', 
-      height:'7%',
+      width: '95%', 
+      height:'8%',
       
       marginTop:'5%',
-      marginBottom:'5%',
+      marginBottom:'3%',
       marginLeft:'5%',
       marginRight:'5%',        
-      backgroundColor: "#778899",
-      borderRadius: 20,
+      backgroundColor: "#1E90FF",
+      borderRadius: 15,
       alignItems:"center",
       justifyContent: "center",       
     },

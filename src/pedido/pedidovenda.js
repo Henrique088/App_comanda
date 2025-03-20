@@ -146,8 +146,10 @@ export default function PedidoVenda() {
                     <View style={stylepedidovenda.ButtonContainer} > 
                         <Icon.Button                        
                             style={stylepedidovenda.Button}  
-                            size={40}
-                                                         
+                            size={35}
+                            backgroundColor="transparent" // "remove" o fundo padrão do Icon
+                            underlayColor="transparent" //remove o efeito do click
+                            iconStyle={{ marginRight: 0, marginLeft: 0 }} //ajusta o icone                            
                             name="cart-plus"                        
                             onPress={()=> AdicioneItem() } >
                            
@@ -157,7 +159,7 @@ export default function PedidoVenda() {
                         {BuscaQuant(qte)}                  
                     </View>                
                 </View>
-           
+                            
             {ItensPedidoVenda()}
         
         </SafeAreaView>

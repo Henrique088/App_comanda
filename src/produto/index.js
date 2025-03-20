@@ -110,7 +110,7 @@ export default function Produto(){
             
             const ValidarImagem = renderSwitch(item.codigo);
 
-            console.log(renderSwitch(item.codigo))
+            //console.log(renderSwitch(item.codigo))
           return (
            
             <View style={styles.organizalista}>      

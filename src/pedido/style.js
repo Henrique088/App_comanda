@@ -96,34 +96,42 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         color: "#FFFFFF",
         fontStyle: 'normal',
-        fontSize: 18,
+        fontSize: 23,
+        textShadowColor: 'rgba(252, 108, 13, 0.3)',
+        textShadowOffset: { width: 3, height: 4 },
+        fontWeight: 'bold',
+        textShadowRadius: 10,
       },       
      
       valorTotal:{
         width: "100%",
         height: 40,
-        fontSize: 20,
+        fontSize: 23,
         fontWeight: 'bold',
-        backgroundColor: "#38A69D",
+        backgroundColor: "#1E90FF",
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
         textAlignVertical: 'center',
         color: "#FFFFFF",
+        //borderRadius: 10,
+        marginTop: 10,
+        
       },
       ListaItem:{                
-        marginBottom: 15,
+        //marginBottom: 15,
         borderRadius: 4,
         backgroundColor: "#f8f8ff",        
-        padding: 10,  
+        padding: 15,  
         
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
         borderWidth: 1,
         borderColor: "#DCDCDC", 
     },
-
+   
     buttonList: {
       alignItems: 'center',
       backgroundColor: '#3D3dE5',
@@ -131,8 +139,8 @@ const styles = StyleSheet.create({
     },
     AlinhaTexto:{ 
       width: '80%',          
-     alignContent:'flex-end',    
-     backfaceVisibility:'hidden',
+      alignContent:'flex-end',    
+      backfaceVisibility:'hidden',
     },
 
     separator:{
